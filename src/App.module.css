@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    line-height: 140%;
+}
+
+.wrapper {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+ 
+    align-items: flex-start;
+}
+
+.noResult {
+    padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    vertical-align: middle;
+    gap: 1rem;
+
+    color: var(--gray-300);
+}
+
+.noResult p {
+    text-align: center;
+}
+
+::placeholder,
+::-moz-placeholder,
+::-webkit-input-placeholder {
+    color: var(--gray-300);
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
