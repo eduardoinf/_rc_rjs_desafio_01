@@ -38,6 +38,11 @@
   transition: all ease-in-out 0.2s;
 }
 
-.formAddTask button:hover {
+.formAddTask button[type=submit]:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.formAddTask button[type=submit]:not(:disabled):hover {
   background: var(--blue);
 }

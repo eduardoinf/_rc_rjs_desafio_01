@@ -31,17 +31,27 @@ export default function AddTaskInput({ addTask } : AddTaskInputProps) {
   }
 
   function handleNewTaskChange(event:ChangeEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity('');
     setTask(event.target.value);
-    // event.target.setCustomValidity('');
+    
   }
+
+  function handleNewTodoInvalid(event:ChangeEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity('Este campo é obrigatório!');
+  }
+
+  const isTaskEmpty = task.length === 0;
 
   return (
     <form className={styles.formAddTask} onSubmit={handleAddNewTask}>
       <input 
         placeholder="Adicione uma nova tarefa"
         onChange={handleNewTaskChange}
-        value={task} />
-      <button type="submit">
+        value={task} 
+        onInvalid={handleNewTodoInvalid}
+        required
+        />
+      <button type="submit" disabled={isTaskEmpty}>
         Criar <PlusCircle size={20} />
       </button>
     </form>
